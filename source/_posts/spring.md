@@ -1,6 +1,7 @@
 ---
 title: spring主要组件
 date: 2017-05-10 09:16:06
+author: TinyKing
 tags: spring
 category: 后端框架
 ---

@@ -68,14 +68,10 @@ target/
 */build
 build/
 
-/data/
-input/
-output/
-/gudle-mr/warehouse/
-/gudle-mr/tmp/
 
 *.crc
 *.desc
 _SUCCESS
 node_modules/
+public/
 /temp/

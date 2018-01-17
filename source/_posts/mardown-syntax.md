@@ -3,7 +3,7 @@ layout: post
 title: 【转】Markdown中文语法
 date: 2018-01-17 11:27:17
 tags:
-- Markdown
+- markdown
 categories: 工具
 ---
 

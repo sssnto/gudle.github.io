@@ -1,0 +1,561 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Github搭建个人博客 | Gudle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gudle">
+    
+
+    
+    <meta name="description" content="github pages个人博客，使用hexo编写，使用Travis CI持续集成，自动发布  Github Pages设置什么是Github PagesGitHub Pages 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github搭建个人博客">
+<meta property="og:url" content="https://gudle.github.io/2017/05/10/github-blog-ci/index.html">
+<meta property="og:site_name" content="Gudle">
+<meta property="og:description" content="github pages个人博客，使用hexo编写，使用Travis CI持续集成，自动发布  Github Pages设置什么是Github PagesGitHub Pages 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-4beb458855d3a24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-61dd77bedc476f85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-939f6f1677ac4e79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-9a5750002c7868d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-6852814908eb6708.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-fdd8ff3c5e13470d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-61a3f1fd2aa95616.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-452afd0057149416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/872613-6760365131298d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-17T06:06:52.503Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github搭建个人博客">
+<meta name="twitter:description" content="github pages个人博客，使用hexo编写，使用Travis CI持续集成，自动发布  Github Pages设置什么是Github PagesGitHub Pages 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/872613-4beb458855d3a24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Gudle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Gudle" title="Gudle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Gudle">Gudle</a></h1>
+				<h2 class="blog-motto">勤于研究，乐于分享</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:gudle.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/05/10/github-blog-ci/" title="Github搭建个人博客" itemprop="url">Github搭建个人博客</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="TinyKing" target="_blank" itemprop="author">TinyKing</a>
+		
+  <p class="article-time">
+    <time datetime="2017-05-10T09:16:06.000Z" itemprop="datePublished"> 发表于 2017-05-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-Pages设置"><span class="toc-number">1.</span> <span class="toc-text">Github Pages设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Github-Pages"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Github Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建自己的Github-Pages"><span class="toc-number">1.2.</span> <span class="toc-text">创建自己的Github Pages</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo-环境配置"><span class="toc-number">2.</span> <span class="toc-text">hexo 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地配置"><span class="toc-number">2.1.</span> <span class="toc-text">本地配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用模版"><span class="toc-number">2.2.</span> <span class="toc-text">使用模版</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Travis-CI集成"><span class="toc-number">3.</span> <span class="toc-text">Travis CI集成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-修改git地址"><span class="toc-number">3.1.</span> <span class="toc-text">1.修改git地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改-travis-xml"><span class="toc-number">3.2.</span> <span class="toc-text">2. 修改.travis.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-创建github-token"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建github token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-创建Travis任务"><span class="toc-number">3.4.</span> <span class="toc-text">4. 创建Travis任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-上传github"><span class="toc-number">3.5.</span> <span class="toc-text">5. 上传github</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>github pages个人博客，使用hexo编写，使用Travis CI持续集成，自动发布</p>
+</blockquote>
+<h1 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h1><h2 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages"></a>什么是Github Pages</h2><p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。</p>
+<p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过<a href="http://username.github.io/" target="_blank" rel="noopener">http://username.github.io</a> 来访问你的个人主页。</p>
+<h2 id="创建自己的Github-Pages"><a href="#创建自己的Github-Pages" class="headerlink" title="创建自己的Github Pages"></a>创建自己的Github Pages</h2><blockquote>
+<p> 我的github pages就是: <a href="http://tinyking.github.io" target="_blank" rel="noopener">http://tinyking.github.io</a></p>
+</blockquote>
+<p>注册GitHub及使用Github Pages的过程已经有很多文章讲过，在此不再详述，可以参考：<br><a href="http://pchou.info/web-build/2013/01/03/build-github-blog-page-01.html" target="_blank" rel="noopener">一步步在GitHub上创建博客主页 全系列</a></p>
+<p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="noopener">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+<p>在这里我创建了一个github repo叫做  <a href="http://tinyking.github.io" target="_blank" rel="noopener">http://tinyking.github.io</a>. 创建完成之后，需要有一次提交(git commit)操作，然后就可以通过链接 <a href="http://tinyking.github.io" target="_blank" rel="noopener">http://tinyking.github.io</a> 访问了。</p>
+<h1 id="hexo-环境配置"><a href="#hexo-环境配置" class="headerlink" title="hexo 环境配置"></a>hexo 环境配置</h1><h2 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h2><p>网上有很多在本地配置环境的教程，请自行搜索。</p>
+<h2 id="使用模版"><a href="#使用模版" class="headerlink" title="使用模版"></a>使用模版</h2><p>访问<a href="https://github.com/tinyking/tinyking.github.io" target="_blank" rel="noopener">https://github.com/tinyking/tinyking.github.io</a>，切换到hexo分支</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-4beb458855d3a24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<p>选择下载</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-61dd77bedc476f85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>如果本地没有node、hexo环境，是无法运行，查看hexo博客的。不过可以通过Travis CI集成。</p>
+<h1 id="Travis-CI集成"><a href="#Travis-CI集成" class="headerlink" title="Travis CI集成"></a>Travis CI集成</h1><h2 id="1-修改git地址"><a href="#1-修改git地址" class="headerlink" title="1.修改git地址"></a>1.修改git地址</h2><p><img src="http://upload-images.jianshu.io/upload_images/872613-939f6f1677ac4e79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<p>进入.git， 打开config</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-9a5750002c7868d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-6852814908eb6708.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="config文件"></p>
+<p>将url修改成你自己的github地址</p>
+<h2 id="2-修改-travis-xml"><a href="#2-修改-travis-xml" class="headerlink" title="2. 修改.travis.xml"></a>2. 修改<code>.travis.xml</code></h2><p><img src="http://upload-images.jianshu.io/upload_images/872613-fdd8ff3c5e13470d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".travis.xml"></p>
+<p>修改成自己的用户名和邮箱</p>
+<h2 id="3-创建github-token"><a href="#3-创建github-token" class="headerlink" title="3.创建github token"></a>3.创建github token</h2><blockquote>
+<p>注意：需要复制该token稍后使用，token值只能看到一次。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-61a3f1fd2aa95616.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<h2 id="4-创建Travis任务"><a href="#4-创建Travis任务" class="headerlink" title="4. 创建Travis任务"></a>4. 创建Travis任务</h2><p><img src="http://upload-images.jianshu.io/upload_images/872613-452afd0057149416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<p>将Github的token添加到目标位置</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/872613-6760365131298d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tinyking.github.io"></p>
+<h2 id="5-上传github"><a href="#5-上传github" class="headerlink" title="5. 上传github"></a>5. 上传github</h2><p>将博客push到github即可</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/hexo/">hexo</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://gudle.github.io/2017/05/10/github-blog-ci/" data-title="Github搭建个人博客 | Gudle" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/01/17/how-to-use-jacman/" title="【转】如何使用 Jacman 主题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【转】如何使用 Jacman 主题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/05/10/spring/"  title="spring主要组件">
+ <strong>下一篇：</strong><br/> 
+ <span>spring主要组件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-Pages设置"><span class="toc-number">1.</span> <span class="toc-text">Github Pages设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Github-Pages"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Github Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建自己的Github-Pages"><span class="toc-number">1.2.</span> <span class="toc-text">创建自己的Github Pages</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo-环境配置"><span class="toc-number">2.</span> <span class="toc-text">hexo 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地配置"><span class="toc-number">2.1.</span> <span class="toc-text">本地配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用模版"><span class="toc-number">2.2.</span> <span class="toc-text">使用模版</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Travis-CI集成"><span class="toc-number">3.</span> <span class="toc-text">Travis CI集成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-修改git地址"><span class="toc-number">3.1.</span> <span class="toc-text">1.修改git地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改-travis-xml"><span class="toc-number">3.2.</span> <span class="toc-text">2. 修改.travis.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-创建github-token"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建github token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-创建Travis任务"><span class="toc-number">3.4.</span> <span class="toc-text">4. 创建Travis任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-上传github"><span class="toc-number">3.5.</span> <span class="toc-text">5. 上传github</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/后端框架/" title="后端框架">后端框架<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>3</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jacman/" title="jacman">jacman<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/spring/" title="spring">spring<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.jdon.com" target="_blank" title="企业级软件架构解决之道">解道Jdon</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.wangjianchao.cn" target="_blank" title="TinyKing&#39;s Blog">TinyKing&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 生命不息 <br/>
+			        XX不止</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Gudle">Gudle</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'gudle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?3791dd8f47e252b696191d5a42282644";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
